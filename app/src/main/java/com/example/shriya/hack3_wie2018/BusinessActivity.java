@@ -51,6 +51,7 @@ public class BusinessActivity extends AppCompatActivity {
         }
         TextView salesView = findViewById(R.id.sales);
         TextView inventoryView = findViewById(R.id.inventory);
+        TextView salaryView = findViewById(R.id.salary_a);
 
         salesView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +66,14 @@ public class BusinessActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent salesIntent = new Intent(BusinessActivity.this, InventoryActivity.class);
                 startActivity(salesIntent);
+            }
+        });
+
+        salaryView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent salaryIntent = new Intent(BusinessActivity.this, SalaryActivity.class);
+                startActivity(salaryIntent);
             }
         });
     }

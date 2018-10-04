@@ -33,7 +33,7 @@ public class InventoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_inventory);
 
-        android.support.design.widget.FloatingActionButton fab = findViewById(R.id.fab_image_button);
+        android.support.design.widget.FloatingActionButton   fab = findViewById(R.id.fab_image_button);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
