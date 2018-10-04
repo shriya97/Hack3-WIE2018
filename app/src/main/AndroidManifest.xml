@@ -35,7 +35,10 @@
         <activity android:name=".PersonalActivity" />
         <activity android:name=".inventory_form" />
         <activity android:name=".SalaryActivity" />
-        <activity android:name=".Salary_formActivity"></activity>
+        <activity android:name=".Salary_formActivity"/>
+
+
+
     </application>
 
 </manifest>
