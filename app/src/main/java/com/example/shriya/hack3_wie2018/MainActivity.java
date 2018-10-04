@@ -35,26 +35,13 @@ public class MainActivity extends AppCompatActivity {
                     Password=password.getText().toString();
                     DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
                     UserInformation user = new UserInformation(Email,Password);
-                    rootRef.child(Email.replace("@gmail.com","")).child("userInformation").setValue(user);
+                    String userId=Email.replace("@gmail.com","");
+                    UserInformation.userId=userId;
+                    rootRef.child(userId).child("userInformation").setValue(user);
                     Toast.makeText(MainActivity.this,"Logged In",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(MainActivity.this,SalesActivity.class));
+                    startActivity(new Intent(MainActivity.this,CategoryActivity.class));
                 }
             });
-
-
-//            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
-//                @Override
-//                public void onDataChange(DataSnapshot dataSnapshot) {
-//                    int f = 0;
-//                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
-//                        Toast.makeText(MainActivity.this,ds.getKey(),Toast.LENGTH_LONG).show();
-//                    }
-//                }
-//                @Override
-//                public void onCancelled(DatabaseError databaseError) {
-//                }
-//
-//            });
 
         }
         catch (Exception e)
