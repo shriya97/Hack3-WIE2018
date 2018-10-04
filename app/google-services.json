@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "93180039268",
+    "firebase_url": "https://demofirebase-1234.firebaseio.com",
+    "project_id": "demofirebase-1234",
+    "storage_bucket": "demofirebase-1234.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93180039268:android:105c05fb2e16c0d9",
+        "android_client_info": {
+          "package_name": "com.example.shriya.demofirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "93180039268-93396rcu4ruurr5q3d5mv89or24s79ja.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1FpTbzn92APtZkASPHyDWtAL_wXFuQu8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93180039268:android:6b2fafa91018900c",
+        "android_client_info": {
+          "package_name": "com.example.shriya.hack3_wie2018"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "93180039268-93396rcu4ruurr5q3d5mv89or24s79ja.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1FpTbzn92APtZkASPHyDWtAL_wXFuQu8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
