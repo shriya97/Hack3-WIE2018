@@ -4,29 +4,20 @@
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android" >
     <TextView
-        android:id="@+id/sales"
+        android:id="@+id/expenditure"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sales"
+        android:text="Expenditrure"
         android:textSize="36sp"
         android:gravity="center"/>
     <TextView
+        android:id="@+id/earning"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Inventory"
+        android:text="Earning"
         android:textSize="36sp"
         android:gravity="center" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Salaries"
-        android:textSize="36sp"
-        android:gravity="center" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Tax Filing"
-        android:textSize="36sp"
-        android:gravity="center" />
+
+
 </LinearLayout>
 

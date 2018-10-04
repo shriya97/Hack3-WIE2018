@@ -13,32 +13,40 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
 
-             <intent-filter>
-             <action android:name="android.intent.action.MAIN" />
+             <!--<intent-filter>-->
+             <!--<action android:name="android.intent.action.MAIN" />-->
 
 
-             <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
+             <!--<category android:name="android.intent.category.LAUNCHER" />-->
+             <!--</intent-filter>-->
         </activity>
         <activity android:name=".CalendarActivity" />
         <activity android:name=".BusinessActivity">
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+             <!--<intent-filter> -->
+             <!--<action android:name="android.intent.action.MAIN" /> -->
+             <!--<category android:name="android.intent.category.LAUNCHER" /> -->
+             <!--</intent-filter> -->
         </activity>
         <activity android:name=".SalesActivity" />
         <activity android:name=".InventoryActivity" />
         <activity android:name=".CategoryActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".PersonalActivity" />
         <activity android:name=".inventory_form" />
         <activity android:name=".SalaryActivity" />
         <activity android:name=".Salary_formActivity"/>
+        <activity android:name=".expenditure_form"/>
+        <activity android:name=".expenditureActivity"/>
+        <activity android:name=".earning_form" />
+        <activity android:name=".EarningActivity" />
 
 
-
+        <receiver android:name=".SmsBroadcastReceiver" />
     </application>
 
 </manifest>
