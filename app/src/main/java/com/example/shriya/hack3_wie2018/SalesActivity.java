@@ -33,7 +33,7 @@ public class SalesActivity extends AppCompatActivity {
         userId = UserInformation.userId;
         try
         {
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("users");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -75,7 +75,7 @@ public class SalesActivity extends AppCompatActivity {
                 String amount = price.getText().toString();
                 String salesDataDisplay = "Sales of " + productName.getText().toString() + " with qty " + qty.getText().toString() + " is " + amount;
                 DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-                databaseReference.child(userId).child("businessFinance").child("sales").child(date).setValue(salesDataDisplay);
+                databaseReference.child("users").child(userId).child("businessFinance").child("sales").child(date).setValue(salesDataDisplay);
             }
         });
 

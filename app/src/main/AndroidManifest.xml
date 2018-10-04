@@ -3,6 +3,7 @@
     package="com.example.shriya.hack3_wie2018">
 
     <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -30,6 +31,7 @@
         </activity>
         <activity android:name=".SalesActivity" />
         <activity android:name=".InventoryActivity" />
+
         <activity android:name=".CategoryActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,13 +42,15 @@
         <activity android:name=".inventory_form" />
         <activity android:name=".SalaryActivity" />
         <activity android:name=".Salary_formActivity"/>
+
         <activity android:name=".expenditure_form"/>
         <activity android:name=".expenditureActivity"/>
         <activity android:name=".earning_form" />
         <activity android:name=".EarningActivity" />
 
+        <activity android:name=".NGOChatActivity"/>
+        <activity android:name=".ChatActivity"/>
 
-        <receiver android:name=".SmsBroadcastReceiver" />
     </application>
 
 </manifest>
