@@ -13,11 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+             <intent-filter>
+             <action android:name="android.intent.action.MAIN" />
+
+
+             <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
         </activity>
         <activity android:name=".CalendarActivity" />
         <activity android:name=".BusinessActivity">
@@ -29,11 +31,14 @@
         </activity>
         <activity android:name=".SalesActivity" />
         <activity android:name=".InventoryActivity" />
-        <activity android:name=".CategoryActivity" />
+
+        <activity android:name=".CategoryActivity">
+        </activity>
         <activity android:name=".PersonalActivity" />
         <activity android:name=".inventory_form" />
-        <activity android:name=".NGOChatActivity" />
-        <activity android:name=".ChatActivity"></activity>
+        <activity android:name=".SalaryActivity" />
+        <activity android:name=".Salary_formActivity"/>
+
     </application>
 
 </manifest>
