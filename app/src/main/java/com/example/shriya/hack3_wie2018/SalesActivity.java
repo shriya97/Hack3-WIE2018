@@ -27,11 +27,13 @@ public class SalesActivity extends AppCompatActivity {
         Intent incoming = getIntent();
         date = incoming.getStringExtra("date");
         productName = findViewById(R.id.name_business);
-        price=findViewById(R.id.price);
-        qty=findViewById(R.id.product_qty);
-        saveDetails=findViewById(R.id.add_details_button_business);
+        price = findViewById(R.id.price);
+        qty = findViewById(R.id.product_qty);
+        saveDetails = findViewById(R.id.add_details_button_business);
         userId = UserInformation.userId;
-        DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference();
+        try
+        {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -39,39 +41,44 @@ public class SalesActivity extends AppCompatActivity {
                     String id = ds.getKey();
                     if (userId.equals(id)) {
                         if (ds.hasChild("businessFinance")) {
-                            sales = ds.child("businessFinance").child("sales").getValue().toString();
-//                            Toast.makeText(SalesActivity.this, sales, Toast.LENGTH_LONG).show();
-                            String data=sales.replace("Sales for "+date+" of","");
-                            String data2[]=data.split(" ");
+                            if (ds.child("businessFinance").child("sales").hasChild(date)) {
+                                sales = ds.child("businessFinance").child("sales").child(date).getValue().toString();
+                                Toast.makeText(SalesActivity.this, sales, Toast.LENGTH_LONG).show();
 
-//                                Toast.makeText(SalesActivity.this,data,Toast.LENGTH_LONG).show();
+                                String data2[] = sales.split(" ");
 
-                            productName.setText(data2[1]);
-                            qty.setText(data2[4]);
-                            price.setText(data2[6]);
-                        }
-                        else
-                            sales="";
+                                Toast.makeText(SalesActivity.this, sales, Toast.LENGTH_LONG).show();
+
+                                productName.setText(data2[2]);
+                                qty.setText(data2[5]);
+                                price.setText(data2[7]);
+                            }
+                        } else
+                            sales = "";
                     }
                 }
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
         });
+        }
+        catch(Exception e)
+        {
+            Toast.makeText(SalesActivity.this,e.getMessage().toString(),Toast.LENGTH_LONG).show();
+        }
         saveDetails.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
-                String amount=price.getText().toString();
-                String salesDataDisplay = "Sales for " + date +" of "+productName.getText().toString()+" with qty "+qty.getText().toString()+" is " + amount;
+            public void onClick(View v) {
+                String amount = price.getText().toString();
+                String salesDataDisplay = "Sales of " + productName.getText().toString() + " with qty " + qty.getText().toString() + " is " + amount;
                 DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
-                databaseReference.child(userId).child("businessFinance").child("sales").setValue(salesDataDisplay);
+                databaseReference.child(userId).child("businessFinance").child("sales").child(date).setValue(salesDataDisplay);
             }
         });
-
 
     }
 }

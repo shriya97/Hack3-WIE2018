@@ -6,8 +6,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Total sale for this month"
+        android:id="@+id/total"
         android:textSize="24sp"
+
         android:gravity="center"/>
 
     <CalendarView
