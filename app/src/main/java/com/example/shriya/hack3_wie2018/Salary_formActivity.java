@@ -9,6 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import static com.example.shriya.hack3_wie2018.UserInformation.userId;
+
 public class Salary_formActivity extends AppCompatActivity {
 
     EditText ed1, ed2,ed3,ed4;
@@ -25,7 +30,7 @@ public class Salary_formActivity extends AppCompatActivity {
         ed1 = (EditText) findViewById(R.id.employee_name);
         ed2 = (EditText) findViewById(R.id.salary);
         ed3 = (EditText) findViewById(R.id.pending);
-        ed4 = (EditText) findViewById(R.id.price);
+
         b1 = (Button) findViewById(R.id.add_details_button_business);
 
         b1.setOnClickListener(new View.OnClickListener() {
@@ -48,8 +53,9 @@ public class Salary_formActivity extends AppCompatActivity {
 
 
                 Toast.makeText(getApplicationContext(), "added", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(Salary_formActivity.this, SalaryActivity.class));
-                finish();
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+                String data=ed2.getText().toString()+" "+ed3.getText().toString();
+                databaseReference.child("users").child(userId).child("businessFinance").child("salaries").child(ed1.getText().toString()).setValue(data);
 
             }
         });

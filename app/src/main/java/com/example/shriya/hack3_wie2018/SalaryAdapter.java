@@ -9,7 +9,11 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.List;
+
+import static com.example.shriya.hack3_wie2018.UserInformation.userId;
 
 /**
  * Created by diksha on 5/10/18.
@@ -58,6 +62,7 @@ public class SalaryAdapter extends  RecyclerView.Adapter<SalaryAdapter.ViewHolde
                 mSalary.remove(salary);
                 notifyItemRemoved(position);
                 //notify the db
+                FirebaseDatabase.getInstance().getReference().child("users").child(userId).child("businessFinance").child("salaries").child(salary.getEmployeeName()).removeValue();
             }
         });
 

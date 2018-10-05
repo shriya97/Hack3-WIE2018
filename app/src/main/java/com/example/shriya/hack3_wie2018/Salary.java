@@ -5,9 +5,9 @@ package com.example.shriya.hack3_wie2018;
  */
 
 public class Salary {
-    String employeeName;
-    String salary;
-    String pendingAmount;
+    public String employeeName;
+    public String salary;
+    public String pendingAmount;
 
     public Salary(String employeeName, String salary, String pendingAmount){
         this.employeeName = employeeName;

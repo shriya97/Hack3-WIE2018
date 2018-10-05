@@ -9,7 +9,11 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.List;
+
+import static com.example.shriya.hack3_wie2018.UserInformation.userId;
 
 /**
  * Created by Priyanka on 10/5/2018.
@@ -55,6 +59,8 @@ public class expenditureAdapter extends RecyclerView.Adapter<expenditureAdapter.
                 mExpenditure.remove(tempexpenditure);
                 notifyItemRemoved(position);
                 //notify the db
+                FirebaseDatabase.getInstance().getReference().child("users").child(userId).child("personalFinance").child("expenditures").child(tempexpenditure.getProductName()).removeValue();
+
             }
         });
 

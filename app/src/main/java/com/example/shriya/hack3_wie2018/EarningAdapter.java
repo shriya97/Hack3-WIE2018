@@ -17,7 +17,11 @@ import java.util.List;
         import android.widget.ImageView;
         import android.widget.TextView;
 
-        import java.util.List;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.List;
+
+import static com.example.shriya.hack3_wie2018.UserInformation.userId;
 
 /**
  * Created by Priyanka on 10/5/2018.
@@ -63,6 +67,8 @@ public class EarningAdapter extends RecyclerView.Adapter<EarningAdapter.ViewHold
                 mEarning.remove(earning);
                 notifyItemRemoved(position);
                 //notify the db
+                FirebaseDatabase.getInstance().getReference().child("users").child(userId).child("personalFinance").child("earnings").child(earning.getProductName()).removeValue();
+
             }
         });
 
