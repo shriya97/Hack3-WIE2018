@@ -27,6 +27,7 @@ public class CategoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_category);
         Button business = findViewById(R.id.business);
         Button personal = findViewById(R.id.personal);
+        Button chat = findViewById(R.id.chat);
 
 
         business.setOnClickListener(new View.OnClickListener() {
@@ -49,7 +50,15 @@ public class CategoryActivity extends AppCompatActivity {
             }
         });
 
+        chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+
+                Intent intent = new Intent (getBaseContext(), NGOChatActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }

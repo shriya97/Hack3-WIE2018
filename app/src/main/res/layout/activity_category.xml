@@ -25,4 +25,14 @@
         android:background="#61c9c8"
         android:text="Personal" />
 
+    <Button
+        android:id="@+id/chat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp"
+        android:width="200dp"
+        android:background="#61c9c8"
+        android:text="Chat" />
+
 </LinearLayout>

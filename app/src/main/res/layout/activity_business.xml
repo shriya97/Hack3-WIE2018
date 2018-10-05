@@ -1,34 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical"
-    android:layout_height="wrap_content"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android" >
-    <TextView
-        android:id="@+id/sales"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Sales"
-        android:textSize="36sp"
-        android:gravity="center"/>
-    <TextView
-        android:id="@+id/inventory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Inventory"
-        android:textSize="36sp"
-        android:gravity="center" />
-    <TextView
-        android:id="@+id/salary_a"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Salaries"
-        android:textSize="36sp"
-        android:gravity="center" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Tax Filing"
-        android:textSize="36sp"
-        android:gravity="center" />
-</LinearLayout>
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view1"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        card_view:cardCornerRadius="2dp"
+        card_view:contentPadding="10dp">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <ImageView
+                android:id="@+id/textView1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="54dp"
+                android:layout_marginStart="54dp"
+                android:src="@drawable/ic_attach_money_black_24dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/sales"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:layout_centerVertical="true"
+                android:text="Sale"
+                android:textSize="36dp" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view2"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        card_view:cardCornerRadius="2dp"
+        card_view:contentPadding="10dp">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <ImageView
+                android:id="@+id/textView3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="54dp"
+                android:layout_marginStart="54dp"
+                android:src="@drawable/ic_card_travel_black_24dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/inventory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:layout_centerVertical="true"
+                android:text="Inventory"
+                android:textSize="36dp" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view4"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        card_view:cardCornerRadius="2dp"
+        card_view:contentPadding="10dp">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_marginBottom="20dp"
+            android:layout_height="fill_parent">
+
+            <ImageView
+                android:id="@+id/textView6"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="54dp"
+                android:layout_marginStart="54dp"
+                android:src="@drawable/ic_person_black_24dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/salary_a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:layout_centerVertical="true"
+                android:text="Salary"
+                android:textSize="36dp" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>
