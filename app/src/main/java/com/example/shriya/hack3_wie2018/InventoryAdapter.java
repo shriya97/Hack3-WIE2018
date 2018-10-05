@@ -74,7 +74,7 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.View
                 mInventory.remove(inventory);
                 notifyItemRemoved(position);
                 //notify the db
-                FirebaseDatabase.getInstance().getReference().child(userId).child("businessFinance").child("inventory").child(inventory.getProductName()).removeValue();
+                FirebaseDatabase.getInstance().getReference().child("users").child(userId).child("businessFinance").child("inventory").child(inventory.getProductName()).removeValue();
             }
         });
 

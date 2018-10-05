@@ -52,7 +52,7 @@ private String userId,date,sales;
         userId = UserInformation.userId;
         try
         {
-            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("users");
             databaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {

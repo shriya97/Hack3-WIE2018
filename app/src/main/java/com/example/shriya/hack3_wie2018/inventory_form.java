@@ -63,7 +63,7 @@ public class inventory_form extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "added", Toast.LENGTH_SHORT).show();
                 DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
                 String data=ed2.getText().toString()+" "+ed3.getText().toString()+" "+ed4.getText().toString();
-                databaseReference.child(userId).child("businessFinance").child("inventory").child(ed1.getText().toString()).setValue(data);
+                databaseReference.child("users").child(userId).child("businessFinance").child("inventory").child(ed1.getText().toString()).setValue(data);
             }
         });
 

@@ -42,8 +42,47 @@
         android:id="@+id/LoginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Password"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
+        android:layout_alignLeft="@+id/Login-SignUp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/Login-SignUp"
+        android:layout_marginBottom="63dp"
         android:text="Login" />
+
+    <TextView
+        android:id="@+id/User"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/Password"
+        android:layout_alignStart="@+id/Password"
+        android:layout_centerVertical="true"
+        android:text="Type " />
+
+    <RadioButton
+        android:id="@+id/radioButtonUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/Password"
+        android:layout_alignRight="@+id/Password"
+        android:layout_centerVertical="true"
+        android:text="User" />
+
+    <RadioButton
+        android:id="@+id/radioButtonNGO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/radioButtonUser"
+        android:layout_alignStart="@+id/radioButtonUser"
+        android:layout_below="@+id/radioButtonUser"
+        android:layout_marginTop="18dp"
+        android:text="NGO" />
+
+    <RadioButton
+        android:id="@+id/radioButtonInvestors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/radioButtonNGO"
+        android:layout_alignStart="@+id/radioButtonNGO"
+        android:layout_below="@+id/radioButtonNGO"
+        android:layout_marginTop="20dp"
+        android:text="Investors" />
 </RelativeLayout>
