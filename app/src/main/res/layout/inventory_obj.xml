@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="120sp"
+    android:orientation="horizontal"
+    android:id="@+id/inventoryList">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/productName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:text="product name: apple"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:text="price: INR 100"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:text="location: Delhi"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/product_qty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:text="quantity: 2"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/delete"
+        android:layout_width="30sp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="15sp"
+        android:layout_marginRight="20sp"
+        android:layout_weight="1"
+        android:foregroundGravity="center"
+        android:src="@drawable/ic_delete_black" />
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#D3D3D3" />
+</RelativeLayout>

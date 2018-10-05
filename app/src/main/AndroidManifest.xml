@@ -21,15 +21,19 @@
         <activity android:name=".CalendarActivity" />
         <activity android:name=".BusinessActivity">
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+             <!--<intent-filter>-->
+             <!--<action android:name="android.intent.action.MAIN" />-->
+             <!--<category android:name="android.intent.category.LAUNCHER" />-->
+             <!--</intent-filter>-->
         </activity>
         <activity android:name=".SalesActivity" />
         <activity android:name=".InventoryActivity" />
-        <activity android:name=".CategoryActivity" />
-        <activity android:name=".PersonalActivity" />
+        <activity android:name=".CategoryActivity" >
+
+        </activity>
+        <activity android:name=".PersonalActivity"/>
+        <activity android:name=".inventory_form"/>
+
     </application>
 
 </manifest>
