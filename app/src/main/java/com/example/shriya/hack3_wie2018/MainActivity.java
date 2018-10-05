@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
                     UserInformation.userId=userId;
                     rootRef.child("users").child(userId).child("userInformation").setValue(user);
                     Toast.makeText(MainActivity.this,"Logged In",Toast.LENGTH_SHORT).show();
+                    UserDetailsChat.username=userId;
                     if(Type.equals("User"))
                     {
                         startActivity(new Intent(MainActivity.this, CategoryActivity.class));

@@ -32,13 +32,11 @@ public class NGOChatActivity extends AppCompatActivity {
     int totalUsers = 0;
     ProgressDialog pd;
     Firebase reference1;
-    String loginUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ngochat);
-        Intent intent=getIntent();
-        loginUser= UserInformation.userId;
 
         usersList = (ListView) findViewById(R.id.usersList);
         noUsersText = (TextView) findViewById(R.id.noUsersText);
@@ -47,41 +45,31 @@ public class NGOChatActivity extends AppCompatActivity {
         pd.setMessage("Loading...");
         pd.show();
 
-        String url = "https://demofirebase-1234.firebaseio.com/messages.json";
+        String url = "https://demofirebase-1234.firebaseio.com/users.json";
 
-        try
-        {
-            StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
-                @Override
-                public void onResponse(String s)
-                {
-                    doOnSuccess(s);
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError volleyError) {
-                    System.out.println("" + volleyError);
-                }
-            });
 
-            RequestQueue rQueue = Volley.newRequestQueue(NGOChatActivity.this);
-            rQueue.add(request);
+        StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String s) {
+                doOnSuccess(s);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                System.out.println("" + volleyError);
+            }
+        });
 
-            usersList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    UserDetailsChat.chatWith = al.get(position);
-                    UserDetailsChat.username=loginUser;
-//                Toast.makeText(Chat_UsersList_Activity.this,Chat_UserDetails.chatWith+" "+Chat_UserDetails.username,Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(NGOChatActivity.this, ChatActivity.class));
-                }
-            });
+        RequestQueue rQueue = Volley.newRequestQueue(NGOChatActivity.this);
+        rQueue.add(request);
 
-        }
-        catch (Exception e)
-        {
-            Toast.makeText(this,e.getMessage(),Toast.LENGTH_LONG).show();
-        }
+        usersList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                UserDetailsChat.chatWith = al.get(position);
+                startActivity(new Intent(NGOChatActivity.this, ChatActivity.class));
+            }
+        });
     }
     public void doOnSuccess(String s){
         try {
@@ -92,25 +80,44 @@ public class NGOChatActivity extends AppCompatActivity {
 
             while(i.hasNext()){
                 key = i.next().toString();
-                if(!key.equals(UserDetailsChat.username))
-                {
-                    String users[]=key.split("_");
-                    String messenger=users[0]+"_"+loginUser;
-                    if((!al.contains(users[0]))&&(!users[0].equals(loginUser))&&(key.equals(messenger)))
-                    {
-                        al.add(users[0]);
-                    }
+                String data[]=key.split("_");
+                if(!data[0].equals(UserDetailsChat.username)) {
+                    al.add(data[0]);
                 }
+
                 totalUsers++;
             }
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
+//        try {
+//            JSONObject obj = new JSONObject(s);
+//
+//            Iterator i = obj.keys();
+//            String key = "";
+//
+//            while(i.hasNext()){
+//                key = i.next().toString();
+//
+//                if(!key.equals(UserDetails.username))
+//                {
+//                    String users[]=key.split("_");
+//                    Intent intent=getIntent();
+//                    String loginUser= intent.getExtras().get("user").toString();
+//                    if(!al.contains(users[0])&&(!users[0].equals(loginUser)))
+//                        al.add(users[0]);
+//                }
+//
+//                totalUsers++;
+//            }
+//
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
 
         if(totalUsers <=1){
             noUsersText.setVisibility(View.VISIBLE);
-//            noUsersText.setText("No chats available");
             usersList.setVisibility(View.GONE);
         }
         else{
