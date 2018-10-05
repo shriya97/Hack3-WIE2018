@@ -75,7 +75,6 @@ public class SalesActivity extends AppCompatActivity {
                 String amount = price.getText().toString();
                 String salesDataDisplay = "Sales of " + productName.getText().toString() + " with qty " + qty.getText().toString() + " is " + amount;
                 DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-
                 databaseReference.child(userId).child("businessFinance").child("sales").child(date).setValue(salesDataDisplay);
             }
         });

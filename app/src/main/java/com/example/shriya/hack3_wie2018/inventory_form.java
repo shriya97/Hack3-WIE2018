@@ -14,8 +14,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import static com.example.shriya.hack3_wie2018.UserInformation.userId;
 
 public class inventory_form extends AppCompatActivity {
 
@@ -55,11 +60,10 @@ public class inventory_form extends AppCompatActivity {
                     return;
                 }
 
-
                 Toast.makeText(getApplicationContext(), "added", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(inventory_form.this, MainActivity.class));
-                finish();
-
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+                String data=ed2.getText().toString()+" "+ed3.getText().toString()+" "+ed4.getText().toString();
+                databaseReference.child(userId).child("businessFinance").child("inventory").child(ed1.getText().toString()).setValue(data);
             }
         });
 

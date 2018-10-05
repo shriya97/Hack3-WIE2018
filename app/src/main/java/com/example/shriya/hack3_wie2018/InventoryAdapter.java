@@ -18,12 +18,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.net.Socket;
 import java.util.List;
+
+import static com.example.shriya.hack3_wie2018.UserInformation.userId;
 
 public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.ViewHolder> {
     private List<Inventory> mInventory;
@@ -71,6 +74,7 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.View
                 mInventory.remove(inventory);
                 notifyItemRemoved(position);
                 //notify the db
+                FirebaseDatabase.getInstance().getReference().child(userId).child("businessFinance").child("inventory").child(inventory.getProductName()).removeValue();
             }
         });
 

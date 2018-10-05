@@ -5,10 +5,10 @@ package com.example.shriya.hack3_wie2018;
  */
 
 public class Inventory {
-    String mproductName;
-    String mqty;
-    String mlocation;
-    String mprice;
+    public  String mproductName;
+    public String mqty;
+    public String mlocation;
+    public String mprice;
     public Inventory(String productName,String qty,String location,String price)
     {
         mproductName=productName;
