@@ -1,19 +1,21 @@
 package com.example.shriya.hack3_wie2018;
 
+import com.google.firebase.database.IgnoreExtraProperties;
+
+import java.io.Serializable;
+
 /**
  * Created by Shriya on 04-10-2018.
  */
-
+@IgnoreExtraProperties
 public class UserInformation
 {
-    public static String name,address,email,phoneno,password;
+    public String name,address,email,phoneno,password;
     public UserInformation(){};
 
-    public UserInformation(String name, String address, String email, String phoneno, String password) {
-        this.name = name;
-        this.address = address;
+    public UserInformation(String email,String password) {
         this.email = email;
-        this.phoneno = phoneno;
         this.password = password;
     }
+
 }
