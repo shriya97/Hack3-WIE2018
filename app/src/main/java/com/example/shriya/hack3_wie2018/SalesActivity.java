@@ -3,19 +3,75 @@ package com.example.shriya.hack3_wie2018;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class SalesActivity extends AppCompatActivity {
 
+    private EditText productName,price,qty;
+    private Button saveDetails;
+    private String date,userId,sales;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sales);
-
         Intent incoming = getIntent();
-        String date = incoming.getStringExtra("date");
+        date = incoming.getStringExtra("date");
+        productName = findViewById(R.id.name_business);
+        price=findViewById(R.id.price);
+        qty=findViewById(R.id.product_qty);
+        saveDetails=findViewById(R.id.add_details_button_business);
+        userId = UserInformation.userId;
+        DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference();
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    String id = ds.getKey();
+                    if (userId.equals(id)) {
+                        if (ds.hasChild("businessFinance")) {
+                            sales = ds.child("businessFinance").child("sales").getValue().toString();
+//                            Toast.makeText(SalesActivity.this, sales, Toast.LENGTH_LONG).show();
+                            String data=sales.replace("Sales for "+date+" of","");
+                            String data2[]=data.split(" ");
 
-        TextView sales = findViewById(R.id.salesDetails);
-        sales.setText("Sales for " + date + "is $1000");
+//                                Toast.makeText(SalesActivity.this,data,Toast.LENGTH_LONG).show();
+
+                            productName.setText(data2[1]);
+                            qty.setText(data2[4]);
+                            price.setText(data2[6]);
+                        }
+                        else
+                            sales="";
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        saveDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                String amount=price.getText().toString();
+                String salesDataDisplay = "Sales for " + date +" of "+productName.getText().toString()+" with qty "+qty.getText().toString()+" is " + amount;
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+
+                databaseReference.child(userId).child("businessFinance").child("sales").setValue(salesDataDisplay);
+            }
+        });
+
+
     }
 }

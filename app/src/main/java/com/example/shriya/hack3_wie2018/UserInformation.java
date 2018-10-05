@@ -10,6 +10,7 @@ import java.io.Serializable;
 @IgnoreExtraProperties
 public class UserInformation
 {
+    public static String userId;
     public String name,address,email,phoneno,password;
     public UserInformation(){};
 
